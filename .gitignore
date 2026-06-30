@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Rust build artifacts
+target/
+
+# TypeScript build artifacts
+dist/
+
+# NAPI-RS generated files (in binding package root)
+packages/binding/*.node
+packages/binding/index.js
+packages/binding/index.d.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Debug logs
+npm-debug.log*
+pnpm-debug.log*
+
+# Test coverage
+coverage/
+
+# Turbo (future)
+.turbo/

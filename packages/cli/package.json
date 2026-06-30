@@ -1,0 +1,30 @@
+{
+  "name": "torry",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "A modern, terminal-native decentralized download manager",
+  "keywords": ["download", "manager", "cli", "rust", "fast", "torrent", "decentralized"],
+  "license": "MIT",
+  "bin": {
+    "torry": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/index.ts",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@torry/core": "workspace:*",
+    "@torry/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

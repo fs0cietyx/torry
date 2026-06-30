@@ -1,0 +1,10 @@
+{
+  "name": "@torry/binding-win32-x64-msvc",
+  "version": "0.1.0",
+  "os": ["win32"],
+  "cpu": ["x64"],
+  "main": "binding.win32-x64-msvc.node",
+  "files": ["binding.win32-x64-msvc.node"],
+  "description": "Torry native binding for Windows x64 (MSVC)",
+  "engines": { "node": ">=22.0.0" }
+}

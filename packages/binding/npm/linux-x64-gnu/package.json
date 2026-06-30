@@ -1,0 +1,11 @@
+{
+  "name": "@torry/binding-linux-x64-gnu",
+  "version": "0.1.0",
+  "os": ["linux"],
+  "cpu": ["x64"],
+  "main": "binding.linux-x64-gnu.node",
+  "files": ["binding.linux-x64-gnu.node"],
+  "libc": ["glibc"],
+  "description": "Torry native binding for Linux x64 (glibc)",
+  "engines": { "node": ">=22.0.0" }
+}

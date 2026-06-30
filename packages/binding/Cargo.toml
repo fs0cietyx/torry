@@ -1,0 +1,21 @@
+[package]
+name = "torry-binding"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "NAPI-RS bindings for torry-core"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+torry-core = { path = "../../crates/core" }
+napi = { version = "2", default-features = false, features = ["async", "napi9"] }
+napi-derive = "2"
+
+[build-dependencies]
+napi-build = "2"
+
+[profile.release]
+lto = true
+strip = "symbols"

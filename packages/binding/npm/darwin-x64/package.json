@@ -1,0 +1,10 @@
+{
+  "name": "@torry/binding-darwin-x64",
+  "version": "0.1.0",
+  "os": ["darwin"],
+  "cpu": ["x64"],
+  "main": "binding.darwin-x64.node",
+  "files": ["binding.darwin-x64.node"],
+  "description": "Torry native binding for macOS x64 (Intel)",
+  "engines": { "node": ">=22.0.0" }
+}
