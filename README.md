@@ -1,51 +1,129 @@
 <div align="center">
-
-<img src="assets/logo.png" alt="torry logo" width="300"/>
-
-# torry
-
-**Curated torrents straight from your terminal.**
-
-Finding a torrent these days sucks. One site is a minefield of fake download buttons. Another hides the real link under a popup that spawns two more tabs. And after all that, half the results are dead, zero seeders.
-
-`torry` is a blazing-fast torrent finder and client that lives in your terminal, with zero setup and nothing to configure. One search checks a short, curated list of reputable sources at once, and whatever you pick downloads straight to your computer using a hyper-optimized Rust engine.
-
-[![npm version](https://img.shields.io/npm/v/@fs0cietyx/torry.svg?style=for-the-badge&color=000000)](https://www.npmjs.com/package/@fs0cietyx/torry)
-[![License: MIT](https://img.shields.io/badge/License-MIT-black.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
+  <img src="assets/logo.png" alt="torry logo" width="300" />
 </div>
 
----
+<div align="center">
+  <a href="https://github.com/fs0cietyx/torry/actions"><img src="https://img.shields.io/github/actions/workflow/status/fs0cietyx/torry/release.yml?style=flat-square&logo=github" alt="Build Status" /></a>
+  <a href="https://www.npmjs.com/package/@fs0cietyx/torry"><img src="https://img.shields.io/npm/v/@fs0cietyx/torry.svg?style=flat-square&logo=npm" alt="NPM Version" /></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square" alt="License: MIT" /></a>
+</div>
 
-<img src="assets/interface.png" alt="torry browse view" width="100%"/>
+<br>
+<div align="center">
+  <img src="assets/interface.png" alt="torry home screen / search interface" width="100%" />
+  <br>
+  <em>Screenshot of torry's starting home page (search interface)</em>
+</div>
+<br>
 
-## 🚀 Get started in 10 seconds
+## Introduction
 
-If you have Node.js installed, you don't even need to download anything. Just run:
+`torry` is a cross-platform, terminal-based torrent search engine and client. 
+
+Finding a torrent these days sucks. One site is a minefield of fake download buttons. Another hides the real link under a popup that spawns two more tabs. `torry` solves this by moving the entire experience to the terminal. It searches a short, curated list of reputable sources at once, and whatever you pick downloads straight to your computer using a hyper-optimized Rust engine.
+
+`torry` is built using a unique hybrid architecture:
+- **Frontend**: A highly interactive Terminal UI built with React/Ink and TypeScript.
+- **Backend/Engine**: A native, zero-copy BitTorrent client written in Rust (bound to Node.js via NAPI-RS).
+
+Downloads run completely in the background via the Rust engine while you keep searching, meaning you can queue up as many as you want without slowing down the UI.
+
+<br>
+<div align="center">
+  <img src="assets/interface2.png" alt="torry downloads pane" width="100%" />
+  <br>
+  <em>Screenshot of torry's active downloading page</em>
+</div>
+<br>
+
+## Usage
+
+If you have Node.js installed, you don't need to compile anything. `torry` pre-builds its Rust binaries for Windows, macOS, and Linux.
+
+Run it instantly using `npx`:
 
 ```bash
 npx @fs0cietyx/torry
 ```
 
-That's all you'll type. `torry` opens straight to a search bar: search for what you want, paste in a magnet link or a bare infohash, or just press `Enter` on an empty box to browse the curated library. From there it's all keypresses, nothing to memorize, and `?` brings up the full list of shortcuts anytime.
+### Quick Start
 
-## 🔍 Finding something
+Some common actions to get you started with `torry`:
 
-Type what you're looking for and press `Enter`. Results stream in from every source as they answer, tagged with size and how many people are sharing each one, so you can see what'll come down fast. 
+- **Search**: Type what you are looking for in the main bar and press `Enter`.
+- **Download**: Use the `Arrow` keys to select a result and press `Enter`.
+- **Direct Links**: Paste a magnet link or a bare infohash directly into the search bar.
+- **Pause/Resume**: Select an active download in the queue and press `Space`.
+- **Remove**: Select an active download and press `x`.
+- **Help**: Press `?` at any time to open the keyboard shortcut menu.
 
-Arrow to what you want and press `Enter` to save it.
+Downloads save directly to your system's default `Downloads` folder, and their state is preserved in a local SQLite database so interrupted downloads pick up right where they left off.
 
-## ⚡ Your downloads
+## Build instructions
 
-<img src="assets/interface2.png" alt="torry downloads pane" width="100%"/>
+If you wish to contribute or build `torry` from source, follow these steps.
 
-Active downloads sit up top with their progress, speed, and time left; when one finishes it stays in the list so you can see it's done. Everything's still there when you come back, and anything interrupted picks up right where it left off, supported by local SQLite state saving. 
+### Prerequisites
 
-Downloads run in the background via a **zero-copy Rust engine** while you keep searching, so you can queue up as many as you want without slowing down the UI. They save to your `Downloads` folder, and the pane keeps tabs on each one. When something finishes it keeps seeding automatically so the next person can find it too. You can pause, resume (`Space`), or delete (`x`) them at any time.
+List of build-time dependencies:
 
-## 📚 What it searches
+- Node.js (v20 or newer recommended)
+- `pnpm` package manager
+- Rust toolchain (`rustup`, `cargo`, `rustc`)
+- A standard C/C++ toolchain for native compilation (`build-essential` on Linux, Xcode Command Line Tools on macOS)
 
-A short, hand-picked list of trusted sources:
+Install the required packages from your package manager:
+
+**Debian/Ubuntu**
+```bash
+sudo apt install curl build-essential
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+npm install -g pnpm
+```
+
+**macOS**
+```bash
+xcode-select --install
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+brew install pnpm
+```
+
+### Compile from source
+
+To compile from source, clone from the Git repository, then run the build scripts:
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/fs0cietyx/torry.git
+cd torry
+
+# 2. Install workspace dependencies
+pnpm install
+
+# 3. Compile the Rust engine and TypeScript CLI
+bash scripts/build.sh
+```
+
+### Run Locally
+
+To run your locally built development version:
+
+```bash
+pnpm dev
+```
+
+## Architecture & Repositories
+
+`torry` is managed as a `pnpm` monorepo containing:
+
+- `crates/core` - The core BitTorrent engine and network stack written in Rust.
+- `packages/binding` - The NAPI-RS bridge that exposes the Rust core to Node.js.
+- `packages/shared` - Shared TypeScript definitions and types.
+- `packages/cli` - The React/Ink terminal UI application.
+
+## Curated Sources
+
+`torry` searches a hand-picked list of trusted sources via DHT/PEX.
 
 | Category | Sources |
 |---|---|
@@ -54,30 +132,22 @@ A short, hand-picked list of trusted sources:
 | **TV** | EZTV, The Pirate Bay, 1337x |
 | **Anime** | Nyaa, SubsPlease |
 
-*Games are the only category that can run code, so they come from FitGirl alone, a repacker with a long, trusted track record; everything else is plain video and subtitles. If a source is down, the search carries on without it, and torry tells you which one is offline.*
+*Note: Games are the only category that can run code, so they come exclusively from FitGirl (a repacker with a long, trusted track record). Everything else is plain video and subtitles.*
 
-## 🛠️ Contributing
+## Privacy & Network
 
-To run or work on `torry` locally:
+Your files stay on your disk, and nothing routes through a central server. `torry` only talks to the torrent network directly via standard trackers, DHT, and PEX. 
 
-1. Clone the repository and open the folder.
-2. Install dependencies:
-   ```bash
-   pnpm install
-   ```
-3. Build the ultra-fast Rust engine and TypeScript layers:
-   ```bash
-   bash scripts/build.sh
-   ```
-4. Run the development version:
-   ```bash
-   pnpm dev
-   ```
+Once a download finishes, it keeps seeding by default, sharing it back so the next person can find it just as easily. The network only works because people pass things along, and even a few minutes makes a real difference. If you'd rather not, opt out anytime: just select the torrent and press `Space` to pause or stop it. Always your call.
 
-Before opening a PR, ensure your code compiles cleanly (`cargo clippy --workspace --all-targets -- -D warnings`) and matches the existing architectural split (Rust engine in `crates/`, React TUI in `packages/cli/`).
+## Support
 
-## 🛡️ Privacy
+If you have trouble running `torry`, please check whether the issue has already been reported in our GitHub issue tracker. If not, please file a new issue describing the problem, your operating system, and the terminal emulator you are using.
 
-Your files stay on your disk, and nothing routes through a central server; `torry` only talks to the torrent network directly via DHT, PEX, and standard trackers. Once a download finishes it keeps seeding by default, sharing it back so the next person can find it just as easily. The network only works because people pass things along, and even a few minutes makes a real difference. 
+## License
 
-If you'd rather not, opt out anytime: just select the torrent and press `Space` to pause or stop it, and press it again to pick it back up. Always your call.
+MIT License.
+
+## About
+
+`torry` - curated torrents straight from your terminal.
