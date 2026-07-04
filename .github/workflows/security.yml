@@ -20,7 +20,7 @@ jobs:
       security-events: write
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@v2.11.0
+        uses: step-security/harden-runner@v2.16.0
         with:
           egress-policy: audit
 
@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@v2.11.0
+        uses: step-security/harden-runner@v2.16.0
         with:
           egress-policy: audit
 
