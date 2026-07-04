@@ -26,7 +26,7 @@ That's all you'll type. torry opens straight to a search bar: search for what yo
 
 Type what you're looking for and press Enter. Results stream in from every source as they answer, tagged with size and how many people are sharing each one, so you can see what'll come down fast. Arrow to what you want and press Enter to save it.
 
-![torry's browse view: the sidebar, the search bar, and merged results from every source](./assets/browse.jpg)
+*(torry's browse view: the sidebar, the search bar, and merged results from every source)*
 
 ## Your downloads
 
@@ -34,7 +34,7 @@ Active downloads sit up top with their progress, speed, and time left; when one 
 
 Downloads run in the background via a zero-copy Rust engine while you keep searching, so you can queue up as many as you want without slowing down the UI. They save to your downloads folder, and the pane keeps tabs on each one. When something finishes it keeps seeding automatically so the next person can find it too. You can pause, resume (Space), or delete (x) them at any time.
 
-![torry's Downloads pane: live shimmering progress on top, recently downloaded below](./assets/downloads.jpg)
+*(torry's Downloads pane: live shimmering progress on top, recently downloaded below)*
 
 ## What it searches
 
