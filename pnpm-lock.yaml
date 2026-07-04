@@ -16,10 +16,10 @@ importers:
 
   packages/cli:
     dependencies:
-      '@torry/core':
+      '@fs0cietyx/core':
         specifier: workspace:*
         version: link:../core
-      '@torry/shared':
+      '@fs0cietyx/shared':
         specifier: workspace:*
         version: link:../shared
       commander:
@@ -56,10 +56,10 @@ importers:
 
   packages/core:
     dependencies:
-      '@torry/binding':
+      '@fs0cietyx/binding':
         specifier: workspace:*
         version: link:../binding
-      '@torry/shared':
+      '@fs0cietyx/shared':
         specifier: workspace:*
         version: link:../shared
     devDependencies:
