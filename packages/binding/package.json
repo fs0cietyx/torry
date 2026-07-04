@@ -27,6 +27,13 @@
   "devDependencies": {
     "@napi-rs/cli": "^3.0.0"
   },
+  "optionalDependencies": {
+    "@torry/binding-darwin-arm64": "workspace:*",
+    "@torry/binding-darwin-x64": "workspace:*",
+    "@torry/binding-linux-x64-gnu": "workspace:*",
+    "@torry/binding-linux-arm64-gnu": "workspace:*",
+    "@torry/binding-win32-x64-msvc": "workspace:*"
+  },
   "engines": {
     "node": ">=22.0.0"
   }
