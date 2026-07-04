@@ -55,6 +55,8 @@ jobs:
 
       - name: Build napi bindings
         run: pnpm --filter @torry/binding exec napi build --platform --target ${{ matrix.target }} --release
+        env:
+          CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: aarch64-linux-gnu-gcc
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
