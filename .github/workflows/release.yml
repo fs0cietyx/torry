@@ -52,7 +52,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
       - name: Build napi bindings
-        run: pnpm --filter @torry/binding exec napi build --platform --target ${{ matrix.target }} --release
+        run: pnpm --filter @fs0cietyx/binding exec napi build --platform --target ${{ matrix.target }} --release
         env:
           CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER: aarch64-linux-gnu-gcc
 
@@ -98,7 +98,7 @@ jobs:
           merge-multiple: true
 
       - name: Build JS packages
-        run: pnpm -r --filter '!@torry/binding' build
+        run: pnpm -r --filter '!@fs0cietyx/binding' build
 
       - name: Generate NAPI packages
         run: |
