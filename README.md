@@ -1,88 +1,74 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/mainakbiswas/torry/main/assets/logo.png" alt="Torry Logo" width="120" />
-  <h1>Torry 🧲</h1>
-  <p><strong>A sleek, blazingly fast, and modern terminal-based BitTorrent client.</strong></p>
-  <p>Torry is a terminal-native BitTorrent client that doesn't compromise. Experience qBittorrent-level performance with a beautiful, out-of-the-box TUI.</p>
-</div>
+# torry, curated torrents straight from your terminal
 
----
+Finding a torrent these days sucks. One site is a minefield of fake download buttons. Another hides the real link under a popup that spawns two more tabs. And after all that, half the results are dead, zero seeders.
 
-## ✨ Features
+torry is a blazing-fast torrent finder and client that lives in your terminal, with zero setup and nothing to configure. One search checks a short, curated list of reputable sources at once, and whatever you pick downloads straight to your computer using a hyper-optimized Rust engine. The files are yours, saved right to your downloads folder.
 
-- **Beautiful Terminal UI**: Built with React and Ink, featuring shimmering progress bars, focus management, and smooth responsive design.
-- **Blazing Fast I/O**: Powered by Rust and `memmap2` for zero-copy file mapping directly to disk.
-- **Out of the Box**: No confusing configurations. It downloads directly to your OS `Downloads` folder by default.
-- **Decentralized**: Full support for DHT (Distributed Hash Table), PEX (Peer Exchange), and UDP/HTTP Trackers.
-- **Smart Algorithms**: Employs a hybrid piece-picking strategy (Random-First for quick startup, Rarest-First for network health) and dynamic choke/unchoke algorithms.
-- **Pause & Resume**: Seamlessly pause downloads or close the app entirely. Torry stores your session state in a local SQLite database and picks up right where you left off.
-- **Cross-Platform**: Built for macOS, Linux, and Windows.
+## Get started
 
----
+Install Node (from nodejs.org) and Rust (from rustup.rs).
 
-## 🚀 Quick Start (Usage)
+Open your terminal.
 
-Torry requires **Node.js >= 22** and **Rust** to build the core engine.
-
-### Installation
+Start it:
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/your-username/torry.git
+git clone https://github.com/fs0cietyx/torry.git
 cd torry
-
-# 2. Setup and Install Dependencies
 pnpm install
-
-# 3. Build the core Rust engine & TypeScript CLI
 bash scripts/build.sh
-
-# 4. Run Torry!
 pnpm dev
 ```
 
-### Navigating the UI
+That's all you'll type. torry opens straight to a search bar: search for what you want, paste in a magnet link or a bare infohash, or just press Enter on an empty box to browse the curated library. From there it's all keypresses, nothing to memorize, and `?` brings up the full list of shortcuts anytime.
 
-Once Torry is open, the TUI is designed to be fully keyboard-driven and intuitive:
+## Finding something
 
-- **`↑` / `↓`**: Navigate between active torrents.
-- **`s`**: Focus the global search bar to fetch magnet links or search.
-- **`Esc`**: Unfocus the search bar or cancel an input.
-- **`Space`**: Pause or resume the currently selected torrent.
-- **`x`**: Delete a torrent from the session list (useful for cleaning up completed files).
-- **`q` or `Ctrl+C`**: Safely exit Torry. Your sessions are automatically saved!
+Type what you're looking for and press Enter. Results stream in from every source as they answer, tagged with size and how many people are sharing each one, so you can see what'll come down fast. Arrow to what you want and press Enter to save it.
 
----
+*(torry's browse view: the sidebar, the search bar, and merged results from every source)*
 
-## 🏗️ Architecture
+## Your downloads
 
-Torry splits its responsibilities perfectly between a lightning-fast Rust backend and a beautiful TypeScript frontend:
+Active downloads sit up top with their progress, speed, and time left; when one finishes it stays in the list so you can see it's done. Everything's still there when you come back, and anything interrupted picks up right where it left off, supported by local SQLite state saving. 
 
-```text
-crates/core       → Pure Rust BitTorrent engine (Zero-copy I/O, DHT, PEX, SQLite)
-packages/binding  → Ultra-thin NAPI-RS bridge connecting Rust to Node.js
-packages/shared   → Shared TypeScript types and state models
-packages/cli      → Terminal UI built with React & Ink
-```
+Downloads run in the background via a zero-copy Rust engine while you keep searching, so you can queue up as many as you want without slowing down the UI. They save to your downloads folder, and the pane keeps tabs on each one. When something finishes it keeps seeding automatically so the next person can find it too. You can pause, resume (Space), or delete (x) them at any time.
 
-By decoupling the engine from the UI, Torry avoids UI thread-blocking while downloading at extreme speeds. The Rust engine spawns a dedicated Tokio runtime and communicates state updates to the Node.js frontend via high-performance channels.
+*(torry's Downloads pane: live shimmering progress on top, recently downloaded below)*
 
-### Performance Under the Hood
-Torry leverages a custom `ManagerActor` model in Rust for every active torrent. It maintains real-time telemetry (EMA throughput, latency, and stability) on connected peers to enforce strict token-bucket speed limits and intelligent unchoking.
+## What it searches
 
----
+A short, hand-picked list of trusted sources:
 
-## 🛠️ Development
+| Category | Sources |
+|---|---|
+| **Games** | FitGirl |
+| **Movies** | YTS, The Pirate Bay, 1337x |
+| **TV** | EZTV, The Pirate Bay, 1337x |
+| **Anime** | Nyaa, SubsPlease |
 
-Want to contribute to Torry? Here are some useful commands:
+Games are the only category that can run code, so they come from FitGirl alone, a repacker with a long, trusted track record; everything else is plain video and subtitles. If a source is down, the search carries on without it, and torry tells you which one is offline.
 
-```bash
-# Build everything (Rust + TypeScript)
-bash scripts/build.sh
+## Contributing
 
-# Type-check all packages
-pnpm typecheck
-```
+To run or work on torry locally:
 
-## 📜 License
+1. Clone the repository and open the folder.
+2. Install dependencies:
+   ```bash
+   pnpm install
+   ```
+3. Build the ultra-fast Rust engine and TypeScript layers:
+   ```bash
+   bash scripts/build.sh
+   ```
+4. Run the development version:
+   ```bash
+   pnpm dev
+   ```
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Before opening a PR, ensure your code compiles cleanly (`cargo clippy --workspace --all-targets -- -D warnings`) and matches the existing architectural split (Rust engine in `crates/`, React TUI in `packages/cli/`).
+
+## Privacy
+
+Your files stay on your disk, and nothing routes through a central server; torry only talks to the torrent network directly via DHT, PEX, and standard trackers. Once a download finishes it keeps seeding by default, sharing it back so the next person can find it just as easily. The network only works because people pass things along, and even a few minutes makes a real difference. If you'd rather not, opt out anytime: just select the torrent and press `Space` to pause or stop it, and press it again to pick it back up. Always your call.
