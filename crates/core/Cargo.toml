@@ -6,10 +6,28 @@ license.workspace = true
 description = "Core download engine for Torry"
 
 [dependencies]
-tokio.workspace = true
+tokio = { version = "1.30", features = ["full", "net"] }
 thiserror.workspace = true
 serde.workspace = true
 serde_json.workspace = true
+sqlx = { version = "0.7", features = ["sqlite", "runtime-tokio"] }
+directories = "5.0"
+fs2 = "0.4"
+reqwest = { version = "0.12", features = ["json"] }
+bytes = "1.5"
+rand = "0.8"
+serde_bencode = "0.2"
+napi = { version = "2", default-features = false, features = ["async", "napi9"] }
+napi-derive = "2"
+sha1_smol = "1.0.1"
+serde_bytes = "0.11.19"
+arc-swap = "1.9.2"
+socket2 = "0.5"
+num-bigint = "0.4.6"
+memmap2 = "0.9.11"
+mainline = "7.0.0"
+futures-lite = "2.6.1"
+async-utp = "0.8.0-alpha1"
 
 [dev-dependencies]
 tokio = { workspace = true, features = ["test-util"] }

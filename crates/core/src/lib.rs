@@ -13,9 +13,17 @@
 //!   └── error     — Error types used across all modules
 //! ```
 
+pub mod db;
 pub mod download;
 pub mod error;
 pub mod hash;
+pub mod magnet;
+pub mod metadata;
+pub mod peer;
+pub mod profile;
+pub mod session;
+pub mod state;
+pub mod tracker;
 
 pub use error::TorryError;
 

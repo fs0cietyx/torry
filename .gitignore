@@ -37,3 +37,13 @@ coverage/
 
 # Turbo (future)
 .turbo/
+
+# Scratch and testing files
+scratch/
+*.patch
+*.torrent
+test*
+get-hash.js
+packages/binding/*.mock
+packages/cli/*.jsonl
+

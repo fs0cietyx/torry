@@ -3,23 +3,40 @@
   "version": "0.1.0",
   "type": "module",
   "description": "A modern, terminal-native decentralized download manager",
-  "keywords": ["download", "manager", "cli", "rust", "fast", "torrent", "decentralized"],
+  "keywords": [
+    "download",
+    "manager",
+    "cli",
+    "rust",
+    "fast",
+    "torrent",
+    "decentralized"
+  ],
   "license": "MIT",
   "bin": {
     "torry": "./dist/index.js"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit",
-    "dev": "tsx src/index.ts",
+    "dev": "tsx src/index.tsx",
     "clean": "rm -rf dist"
   },
   "dependencies": {
     "@torry/core": "workspace:*",
-    "@torry/shared": "workspace:*"
+    "@torry/shared": "workspace:*",
+    "commander": "^15.0.0",
+    "ink": "^7.1.0",
+    "ink-text-input": "^6.0.0",
+    "react": "^19.2.7",
+    "zustand": "^5.0.14"
   },
   "devDependencies": {
+    "@types/node": "^26.0.1",
+    "@types/react": "^19.2.17",
     "tsup": "^8.0.0",
     "tsx": "^4.0.0",
     "typescript": "^5.7.0"

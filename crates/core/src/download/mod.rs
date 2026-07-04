@@ -6,7 +6,8 @@
 //! - Progress reporting via callbacks
 //! - Chunk reassembly and file writing
 
-use crate::error::Result;
+pub mod disk;
+pub mod manager;
 
 /// Configuration for a download task.
 #[derive(Debug, Clone)]

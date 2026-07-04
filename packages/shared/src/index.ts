@@ -22,3 +22,5 @@ export {
   USER_AGENT,
   CONFIG_FILE_NAME,
 } from './constants.js';
+
+export type { TorryEventMap, ErrorPayload } from './events.js';

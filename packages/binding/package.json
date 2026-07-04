@@ -2,23 +2,20 @@
   "name": "@torry/binding",
   "version": "0.1.0",
   "type": "module",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "main.js",
+  "types": "custom.d.ts",
   "napi": {
-    "name": "binding",
-    "triples": {
-      "defaults": true,
-      "additional": [
-        "aarch64-apple-darwin",
-        "aarch64-unknown-linux-gnu",
-        "aarch64-unknown-linux-musl",
-        "x86_64-unknown-linux-musl"
-      ]
-    }
+    "binaryName": "binding",
+    "targets": [
+      "aarch64-apple-darwin",
+      "x86_64-apple-darwin",
+      "x86_64-unknown-linux-gnu",
+      "aarch64-unknown-linux-gnu"
+    ]
   },
   "files": [
-    "index.js",
-    "index.d.ts"
+    "main.js",
+    "custom.d.ts"
   ],
   "scripts": {
     "build": "napi build --platform --release",

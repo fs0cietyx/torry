@@ -17,14 +17,19 @@ pub enum TorryError {
 
     /// Hash verification did not match the expected value.
     #[error("Hash verification failed: expected {expected}, got {actual}")]
-    HashMismatch {
-        expected: String,
-        actual: String,
-    },
+    HashMismatch { expected: String, actual: String },
 
     /// An I/O error occurred (file read/write, permissions, etc.).
     #[error("IO error: {0}")]
     Io(#[from] std::io::Error),
+
+    /// A NAPI-related error occurred.
+    #[error("NAPI Error: {0}")]
+    Napi(String),
+
+    /// Metadata could not be parsed or is invalid.
+    #[error("Invalid metadata: {0}")]
+    InvalidMetadata(String),
 
     /// The provided URL is not valid or not supported.
     #[error("Invalid URL: {0}")]

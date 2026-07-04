@@ -33,11 +33,7 @@ impl std::fmt::Display for HashAlgorithm {
 ///
 /// # Returns
 /// `Ok(true)` if the computed hash matches `expected`, `Ok(false)` otherwise.
-pub fn verify_hash(
-    _path: &str,
-    _expected: &str,
-    _algorithm: HashAlgorithm,
-) -> Result<bool> {
+pub fn verify_hash(_path: &str, _expected: &str, _algorithm: HashAlgorithm) -> Result<bool> {
     // TODO: Implement actual hash computation
     // Will use: sha2 crate (SHA-256) or blake3 crate (BLAKE3)
     Ok(true)
