@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Box, Text } from 'ink';
 import TextInput from 'ink-text-input';
-import { TorryEngine } from '@torry/core';
+import { TorryEngine } from '@fs0cietyx/core';
 import { useAppStore } from '../store.js';
 
 interface CommandPaletteProps {

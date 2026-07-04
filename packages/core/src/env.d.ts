@@ -1,4 +1,4 @@
-declare module '@torry/binding' {
+declare module '@fs0cietyx/binding' {
   export interface PeerStateSnapshot {
     ip: string;
     unchoked: boolean;

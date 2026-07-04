@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Text, useInput } from 'ink';
 import { useAppStore } from '../store.js';
 
-import type { EngineSnapshot, TorrentSnapshot } from '@torry/core';
+import type { EngineSnapshot, TorrentSnapshot } from '@fs0cietyx/core';
 
 function formatBytes(bytes: number, decimals = 2) {
   if (!+bytes) return '0 B';
@@ -29,7 +29,7 @@ function getEstimatedSize(progress: number, downloaded: number, totalBytes: numb
   return formatBytes(downloaded / (progress / 100));
 }
 
-import type { TorryEngine } from '@torry/core';
+import type { TorryEngine } from '@fs0cietyx/core';
 
 export function Dashboard({ view = 'downloading', engine }: { view?: 'downloading' | 'recent' | 'seeding', engine?: TorryEngine }) {
   const engineSnapshot = useAppStore((state) => state.engineSnapshot);

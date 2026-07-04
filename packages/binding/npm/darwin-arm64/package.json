@@ -1,5 +1,5 @@
 {
-  "name": "@torry/binding-darwin-arm64",
+  "name": "@fs0cietyx/binding-darwin-arm64",
   "version": "0.1.0",
   "os": ["darwin"],
   "cpu": ["arm64"],

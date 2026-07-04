@@ -1,5 +1,5 @@
 {
-  "name": "torry",
+  "name": "@fs0cietyx/torry",
   "version": "0.1.0",
   "type": "module",
   "description": "A modern, terminal-native decentralized download manager",
@@ -26,8 +26,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@torry/core": "workspace:*",
-    "@torry/shared": "workspace:*",
+    "@fs0cietyx/core": "workspace:*",
+    "@fs0cietyx/shared": "workspace:*",
     "commander": "^15.0.0",
     "ink": "^7.1.0",
     "ink-text-input": "^6.0.0",

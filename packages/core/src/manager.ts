@@ -1,6 +1,6 @@
 import { EventBus } from './event-bus.js';
-import { RuntimeContext } from '@torry/binding';
-import type { TorryEventMap, DownloadConfig } from '@torry/shared';
+import { RuntimeContext } from '@fs0cietyx/binding';
+import type { TorryEventMap, DownloadConfig } from '@fs0cietyx/shared';
 
 declare function setTimeout(fn: () => void, ms: number): any;
 

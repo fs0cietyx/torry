@@ -8,5 +8,5 @@ export default defineConfig({
   sourcemap: true,
   target: 'node22',
   // Don't bundle the binding — it's a native addon that must be resolved at runtime
-  external: ['@torry/binding'],
+  external: ['@fs0cietyx/binding'],
 });

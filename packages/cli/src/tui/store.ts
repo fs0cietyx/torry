@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-import type { EngineSnapshot } from '@torry/core';
+import type { EngineSnapshot } from '@fs0cietyx/core';
 
 export type FocusId = 'sidebar' | 'main' | 'command_palette' | 'modal';
 

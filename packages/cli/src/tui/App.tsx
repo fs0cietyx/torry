@@ -9,7 +9,7 @@ import { Dashboard } from './components/Dashboard.js';
 import { CommandPalette } from './components/CommandPalette.js';
 import { SearchPane } from './components/SearchPane.js';
 import { HelpModal } from './components/HelpModal.js';
-import { TorryEngine } from '@torry/core';
+import { TorryEngine } from '@fs0cietyx/core';
 
 interface AppProps {
   engine: TorryEngine;

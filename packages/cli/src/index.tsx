@@ -1,6 +1,6 @@
 import { render } from 'ink';
 import { Command } from 'commander';
-import { version, TorryEngine } from '@torry/core';
+import { version, TorryEngine } from '@fs0cietyx/core';
 import { App } from './tui/App.js';
 
 // ─── 1. TTY & CI Detection ────────────────────────────────────────────────

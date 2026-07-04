@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Box, Text, useInput } from 'ink';
 import TextInput from 'ink-text-input';
-import { TorryEngine } from '@torry/core';
+import { TorryEngine } from '@fs0cietyx/core';
 import { execSync } from 'child_process';
 import { useAppStore } from '../store.js';
 

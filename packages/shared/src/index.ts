@@ -1,8 +1,8 @@
 /**
- * @torry/shared — Shared types, errors, and constants for the Torry ecosystem.
+ * @fs0cietyx/shared — Shared types, errors, and constants for the Torry ecosystem.
  *
  * This package is a leaf dependency with zero external dependencies.
- * Both @torry/core and torry (CLI) depend on it.
+ * Both @fs0cietyx/core and torry (CLI) depend on it.
  */
 
 export type {

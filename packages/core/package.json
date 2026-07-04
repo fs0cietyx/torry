@@ -1,5 +1,5 @@
 {
-  "name": "@torry/core",
+  "name": "@fs0cietyx/core",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -18,8 +18,8 @@
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@torry/binding": "workspace:*",
-    "@torry/shared": "workspace:*"
+    "@fs0cietyx/binding": "workspace:*",
+    "@fs0cietyx/shared": "workspace:*"
   },
   "devDependencies": {
     "tsup": "^8.0.0",

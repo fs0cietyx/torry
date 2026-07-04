@@ -15,5 +15,5 @@ export default defineConfig({
     js: '#!/usr/bin/env node',
   },
   // Don't bundle workspace deps or native addon — resolve from node_modules at runtime
-  external: ['@torry/core', '@torry/shared', '@torry/binding'],
+  external: ['@fs0cietyx/core', '@fs0cietyx/shared', '@fs0cietyx/binding'],
 });
