@@ -10,7 +10,7 @@ tokio = { version = "1.30", features = ["full", "net"] }
 thiserror.workspace = true
 serde.workspace = true
 serde_json.workspace = true
-sqlx = { version = "0.7", features = ["sqlite", "runtime-tokio"] }
+sqlx = { version = "0.8", features = ["sqlite", "runtime-tokio"] }
 directories = "5.0"
 fs2 = "0.4"
 reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
